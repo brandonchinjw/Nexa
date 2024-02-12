@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Nexa",
+    "slug": "Nexa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Images/NexaLogo.jpg",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.Nexa"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/Images/NexaLogo.jpg",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/Images/NexaLogo.jpg"
+    }
+  }
+}
