@@ -8,14 +8,19 @@ export function Suggestions() {
 }
 
 const styles = StyleSheet.create({
-    Suggestion: {
-        position: 'absolute',
-        top: 700,
-        width: "60%",
+    container: {
+        display: "flex",
+        width: "100%",
+        height: "33%"
+    },
+    mainSuggestion: {
+        flex: 1,
         right: 3,
         textAlign: 'right',
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'whitesmoke',
+        color: '#86868B',
+        top: "22%",
+
     }
 })

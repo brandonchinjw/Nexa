@@ -6,25 +6,34 @@ import { Dimensions } from 'react-native';
 
 import topicData from "../data/TopicData"
 import Swiper from 'react-native-swiper'
+import {SecondaryTopic} from './SecondaryTopic'
+import { useNavigation } from '@react-navigation/native';
 
+export function MainTopic(prop) {
+    const videoRef = React.useRef(null);
+    const topic = prop.topic
+    const video = prop.topic.topicVideo
+    const navigation = useNavigation()
 
-export function Topic(prop) {
-    if (prop.main) {
-        return (
-            <View key={prop.topic.id} style = {styles.container1}>
-                <Image style={styles.mainImage} source = {prop.topic.topicImage}></Image>
-                <Text style={styles.mainTopicText}> {prop.topic.topicText} </Text>
-            </View>
-        )
-        }
-    else {
-        return (
-            <View key={prop.topic.id} style = {styles.container2}>
-                <Image style={styles.secondaryImage} source = {prop.topic.topicImage}></Image>
-                <Text style={styles.secondaryTopicText}> {prop.topic.topicName} </Text>
-            </View>
-        )
-    }
+    const Pressed = (topic) => {
+        navigation.navigate("SecondPage", {topic: topic});
+    };
+
+    return (
+        <Pressable style = {styles.container1} onPress = {() => 
+            navigation.navigate("SecondPage", {topicVideo: prop.topic.topicVideo, 
+            topicText: prop.topic.topicText, topicId: prop.topic.id})}>
+        <View key={prop.topic.id} style = {styles.container1}>
+            <Video 
+            style={styles.mainVideo} 
+            source = {video} 
+            ref = {videoRef}
+            shouldPlay
+            isLooping/>
+            <Text style={styles.mainTopicText}> {prop.topic.topicText} </Text>
+        </View>
+        </Pressable>
+    )
 }
 
 

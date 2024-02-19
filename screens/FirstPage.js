@@ -22,25 +22,9 @@ const FirstPage = ({ navigation }) => {
       });
   }, []);
 
-const handleSendData = (value) => {
+  const handleSendData = (value) => {
     navigation.navigate("SecondPage", {productInfo:value});
   };
-
-const renderProductItem = ({item, index})=> (
-    <View key={index} style={styles.buttonContainer} >
-    <Text style={styles.buttonText}> {index} </Text>
-
-    </View>
-
-  );
-
-  /*const [isLoaded] = useFonts({
-    "titleFont": require('../assets/fonts/Lobster.ttf'),
-  });
-
-  if(!isLoaded){
-    return null;
-  };*/
 
   return(
     <View style={styles.mainContainer}>
