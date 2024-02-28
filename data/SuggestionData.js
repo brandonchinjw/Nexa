@@ -3,8 +3,13 @@ export default {
     "data": {
         "suggestions": [
             {
-                "id": "a",
-                "Suggestion": "What happened with the 49ers?"
+                "id": 100,
+                "mainSuggestion": "What happened with the 49ers?",
+                "sideSuggestions": [
+                    {"sideSug": "Who is the 49ers' quarterback?"}, 
+                    {"sideSug": "2024 Superbowl"}, 
+                    {"sideSug": "NFL Predictions"}
+                ]
             },
         ]
     }
