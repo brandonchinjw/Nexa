@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, Pressable,
 import React, {useState} from 'react';
 import { Dimensions } from 'react-native';
 
-import topicData from "../data/TopicData"
+import headlineData from "../data/HeadlinesData"
 import Swiper from 'react-native-swiper'
-import {Topic} from "./MainTopic"
+import {MainTopic} from "./MainTopic"
 import Video, {VideoRef} from 'react-native-video';
 
 export function MainCarousel() {
     //If it's one of the three main topics, it'll be displayed as a Swiper at the top of the first page
-    const topicsArr = topicData.data.topics
-    const mainTopics = topicsArr.sort((a, b) => {
+    const headlinesArr = headlineData.data.topics
+    const headlines = headlinesArr.sort((a, b) => {
         return b.clicks - a.clicks
     }).slice(0, 3)
     
@@ -26,9 +26,9 @@ export function MainCarousel() {
                 activeDot = {<View style={styles.activeDot} />}
                 paginationStyle = {styles.pag}
             >
-                {mainTopics.map((mainTopic, i) => {
+                {headlines.map((headline, i) => {
                 return (
-                    <Topic main topic={mainTopic} key={mainTopic.id} />
+                    <MainTopic topic={headline} key={headline.id} />
                     )
                 })}
             </Swiper>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     mainCarousel: {
         display: "flex",
         width: "100%",
-        height: "60%"
+        height: "57%"
       },
     inactiveDot: {
         width: 100,

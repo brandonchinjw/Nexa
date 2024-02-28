@@ -1,52 +1,82 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, Pressable, Image, ImageBackground } from 'react-native';
-import {Video, VideoRef} from 'expo-av';
-import React, {useState, useRef} from 'react';
-import { Dimensions, requireNativeComponent } from 'react-native';
+import {Video} from 'react-native-video';
+import React, {useState} from 'react';
+import { Dimensions } from 'react-native';
+
+import headlineData from "../data/HeadlinesData"
 import Swiper from 'react-native-swiper'
 import {SecondaryTopic} from './SecondaryTopic'
 import { useNavigation } from '@react-navigation/native';
 
 export function DisplayTopic(prop) {
     const videoRef = React.useRef(null);
-    const video = prop.topicVideo
+    const topic = prop.topic
+    const video = prop.topic.topicVideo
+    const navigation = useNavigation()
+
 
     return (
-        <View key={prop.topicId} style = {styles.container1}>
+        <Pressable style = {styles.container1} onPress = {() => 
+            navigation.navigate("SecondPage", {topicVideo: prop.topic.topicVideo, 
+            topicText: prop.topic.topicText, topicId: prop.topic.id})}>
+        <View key={prop.topic.id} style = {styles.container1}>
             <Video 
             style={styles.mainVideo} 
             source = {video} 
             ref = {videoRef}
             shouldPlay
-            isLooping
-            resizeMode='cover'
-            />
-            <Text style={styles.mainTopicText}> {prop.topicText} </Text>
+            isLooping/>
+            <Text style={styles.mainTopicText}> {prop.topic.topicText} </Text>
         </View>
+        </Pressable>
     )
 }
 
 
 const styles = StyleSheet.create({
     container1: {
-        display: "flex",
+        flex: 3,
         width: "100%",
         height: "40%",
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    mainVideo: {
+    mainImage: {
         flex: 2,
         width: "100%",
-        height: "100%",
+        height: "60%",
         borderRadius: 40,
         resizeMode: "cover",
     },
     mainTopicText: {
         position: "absolute",
-        width: "83%",
+        width: "72%",
         color: "white",
-        fontSize: 22,
+        fontSize: 30,
         fontWeight: "bold",
         bottom: 30,
-        left: "9%"
+        left: 10
+    },
+    container2: {
+        flex: 1,
+        height: "35%",
+        width: "50%",
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    secondaryImage: {
+        flex: 1,
+        width: 200,
+        borderRadius: 10,
+        marginTop: 15,
+        marginLeft: 5,
+        marginRight: 10,
+    },
+    secondaryTopicText: {
+        position: "absolute",
+        color: "white",
+        fontSize: 20,
+        fontWeight: "bold",
     },
 })

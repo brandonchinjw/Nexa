@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
         height: "20%",
         borderTopColor: "white",
         borderTopWidth: 1,
-        bottom: 110
     },
     singularButton: {
         flex: 1,

@@ -8,6 +8,9 @@ import Swiper from 'react-native-swiper'
 import {MainCarousel} from "../components/MainCarousel"
 import { SecondaryCarousel } from '../components/SecondaryCarousel';
 import { Suggestions } from '../components/Suggestions';
+import TopicData from '../data/TopicData';
+import { SecondaryTopic } from '../components/SecondaryTopic';
+import { ButtonBanner } from '../components/ButtonBanner';
 
 const FirstPage = ({ navigation }) => {
   const [jewelery, setJewelery] = useState([]);
@@ -31,6 +34,7 @@ const FirstPage = ({ navigation }) => {
       <MainCarousel/> 
       <SecondaryCarousel/>
       <Suggestions />
+      <ButtonBanner />
       {/*<Text style={styles.firstPageTitle}> PRODUCTS </Text>
       <FlatList
         data={jewelery}
@@ -55,6 +59,7 @@ const FirstPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
+    display: 'flex',
     flex: 1,
     flexDirection: "column",
     backgroundColor:'black',
