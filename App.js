@@ -1,19 +1,69 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, Pressable, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, Pressable, Image, Easing, Animated } from 'react-native';
 import {Video} from 'react-native-video';
 import {useState} from 'react';
 
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, TransitionSpecs, HeaderStyleInterpolators, CardStyleInterpolators} from '@react-navigation/native-stack';
 
 import FirstPage from './screens/FirstPage';
 import SecondPage from './screens/SecondPage';
 import SplashScreen from './screens/SplashScreen';
 
 
-const Stack= createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
+const config = {
+  animation: 'spring',
+  config: {
+    stiffness: 1000,
+    damping: 50,
+    mass: 3,
+    overshootClamping: false,
+    restDisplacementThreshold: 0.01,
+    restSpeedThreshold: 0.01,
+  }
+}
+
+const closeConfig = {
+  animation: 'timing',
+  config: {
+    duration: 500,
+    easing: Easing.linear
+  }
+}
+
+const customTransition = {
+  gestureDirection: 'vertical',
+  transitionSpec: {
+    duration: 1400,
+    easing: Easing.out(Easing.poly(4)),
+    timing: Animated.timing,
+  },
+  cardStyleInterpolator: ({ current, next, layouts }) => {
+    return {
+      cardStyle: {
+        transform: [
+          {
+            translateX: current.progress.interpolate({
+              inputRange: [0, 1],
+              outputRange: [layouts.screen.width, 0],
+            }),
+          },
+          {
+            scale: next
+              ? next.progress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [1, 0.9],
+                })
+              : 1,
+          },
+        ],
+      },
+    };
+  },
+};
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,9 +76,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
+    {/*If the app is still loading, show the splash screen*/}
     {isLoading ? <SplashScreen /> : <Stack.Navigator 
-        screenOptions={{ headerShown: false }}>
-
+        screenOptions={{ 
+          headerShown: false,
+          ...customTransition,
+        }}>
+        
         <Stack.Screen name="FirstPage" component={FirstPage} />
         <Stack.Screen name="SecondPage" component={SecondPage} />
       </Stack.Navigator>}

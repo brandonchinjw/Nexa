@@ -8,7 +8,8 @@ export default {
                 "sideSuggestions": [
                     {"sideSug": "Who is the 49ers' quarterback?"}, 
                     {"sideSug": "2024 Superbowl"}, 
-                    {"sideSug": "NFL Predictions"}
+                    {"sideSug": "NFL Predictions"},
+                    {"sideSug": "49ers' 2024 season"},
                 ]
             },
         ]

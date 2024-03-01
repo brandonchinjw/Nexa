@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, Pressable, Image, ImageBackground } from 'react-native';
-import {Video} from 'react-native-video';
+import {Video} from 'expo-av';
 import React, {useState} from 'react';
 import { Dimensions } from 'react-native';
 
@@ -11,23 +11,21 @@ import { useNavigation } from '@react-navigation/native';
 
 export function DisplayTopic(prop) {
     const videoRef = React.useRef(null);
-    const topic = prop.topic
-    const video = prop.topic.topicVideo
     const navigation = useNavigation()
 
 
     return (
         <Pressable style = {styles.container1} onPress = {() => 
-            navigation.navigate("SecondPage", {topicVideo: prop.topic.topicVideo, 
-            topicText: prop.topic.topicText, topicId: prop.topic.id})}>
-        <View key={prop.topic.id} style = {styles.container1}>
+            navigation.navigate("SecondPage", {topicVideo: prop.topicVideo, 
+            topicText: prop.topic.topicText, topicId: prop.topicId})}>
+        <View key={prop.topicId} style = {styles.container1}>
             <Video 
             style={styles.mainVideo} 
-            source = {video} 
+            source = {prop.topicVideo} 
             ref = {videoRef}
             shouldPlay
             isLooping/>
-            <Text style={styles.mainTopicText}> {prop.topic.topicText} </Text>
+            <Text style={styles.mainTopicText}> {prop.topicText} </Text>
         </View>
         </Pressable>
     )
