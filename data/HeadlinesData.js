@@ -5,19 +5,26 @@ export default {
             {
                 "id": "1",
                 "topicVideo": require('../assets/Images/Hamilton.mp4'),
-                "headlineText": "F1 driver Lewis Hamilton to leave Mercedes for Ferrari",
+                "headlineText": "F1 driver Lewis Hamilton to leave Mercedes for Ferrari.",
+                "headlineQuestion": "Why did Lewis Hamilton leave Mercedes for Ferrari?",
+                "response": "Taylor Swift transcends her role as a global music icon. Taylor Swift has been crowned the most powerful figure in the music industry by Billboard's annual 100 list.",
                 "clicks": 100
             },
             {
                 "id": "2",
                 "topicVideo": require('../assets/Images/TaylorSwift.mp4'),
                 "headlineText": "Taylor Swift. Turning melodies into economic marvels",
+                "headlineQuestion": "Tell me more about Taylor Swift.",
+                "response": "Taylor Swift transcends her role as a global music icon. Taylor Swift has been crowned the most powerful figure in the music industry by Billboard's annual 100 list. Taylor Swift transcends her role as a global music icon. Taylor Swift has been crowned the most powerful figure in the music industry by Billboard's annual 100 list. Taylor Swift transcends her role as a global music icon. Taylor Swift has been crowned the most powerful figure in the music industry by Billboard's annual 100 list.",
+                "displayVideo": require('../assets/Images/Hamilton.mp4'),
                 "clicks": 100
             },
             {
                 "id": "3",
                 "topicVideo": require('../assets/Images/TravisKelce.mp4'),
                 "headlineText": "Travis Kelce eyes his third Super Bowl ring",
+                "headlineQuestion": "Tell me more about Taylor Swift.",
+                "response": "Taylor Swift transcends her role as a global music icon. Taylor Swift has been crowned the most powerful figure in the music industry by Billboard's annual 100 list.",
                 "clicks": 100
             },
         
