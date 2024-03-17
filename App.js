@@ -9,8 +9,10 @@ import {createNativeStackNavigator, TransitionSpecs, HeaderStyleInterpolators, C
 
 import FirstPage from './screens/FirstPage';
 import SecondPage from './screens/SecondPage';
+import TrialSecondPage from './screens/TrialSecondPage';
 import SplashScreen from './screens/SplashScreen';
-
+import TrialSecondPageText from './screens/TrialSecondPageText';
+import TrialHomePage from './screens/TrialHomePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -82,9 +84,12 @@ export default function App() {
           headerShown: false,
           ...customTransition,
         }}>
-        
+        <Stack.Screen name="TrialHomePage" component={TrialHomePage} />
         <Stack.Screen name="FirstPage" component={FirstPage} />
         <Stack.Screen name="SecondPage" component={SecondPage} />
+        <Stack.Screen name="TrialSecondPage" component={TrialSecondPage} />
+        <Stack.Screen name="TrialSecondPageText" component={TrialSecondPageText} />
+
       </Stack.Navigator>}
     </NavigationContainer>
   );

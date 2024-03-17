@@ -11,6 +11,7 @@ import { Suggestions } from '../components/Suggestions';
 import TopicData from '../data/TopicData';
 import { SecondaryTopic } from '../components/SecondaryTopic';
 import { ButtonBanner } from '../components/ButtonBanner';
+import { SideSuggestion } from '../components/SideSuggestion';
 
 const FirstPage = ({ navigation }) => {
   const [jewelery, setJewelery] = useState([]);
@@ -31,9 +32,10 @@ const FirstPage = ({ navigation }) => {
 
   return(
     <View style={styles.mainContainer}>
-      <MainCarousel/> 
+      <MainCarousel style = {styles.mainCarousel}/> 
       <SecondaryCarousel/>
       <Suggestions />
+      <SideSuggestion />
       <ButtonBanner />
       {/*<Text style={styles.firstPageTitle}> PRODUCTS </Text>
       <FlatList

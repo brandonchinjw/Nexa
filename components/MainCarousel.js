@@ -40,8 +40,9 @@ const styles = StyleSheet.create({
     mainCarousel: {
         display: "flex",
         width: "100%",
-        height: "57%"
-      },
+        //height: "57%"
+        height: 540
+    },
     inactiveDot: {
         width: 100,
         height: 4,

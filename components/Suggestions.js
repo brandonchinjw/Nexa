@@ -7,18 +7,6 @@ export function Suggestions() {
     return (
         <View style = {styles.container}> 
             <Text style={styles.mainSuggestion}> {currentSuggestion.mainSuggestion} </Text>
-            <FlatList 
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                data = {currentSuggestion.sideSuggestions}
-                style = {styles.flatList}   
-                keyExtractor={item => item.id}
-                renderItem={({item: suggestion, index, separators}) => {
-                    return (
-                        <SideSuggestion text = {suggestion.sideSug} id = {suggestion.id}/>
-                    )
-                }}
-            />
         </View>
     )
 }
@@ -27,8 +15,8 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
         width: "100%",
-        height: "16%",
-        marginBottom: "5.5%"
+        height: "9%",
+        marginBottom: "2%"
     },
     mainSuggestion: {
         flex: 1,
@@ -41,8 +29,5 @@ const styles = StyleSheet.create({
         color: '#86868B',
         paddingTop: "10%",
         paddingBottom: "15%"
-    },
-    flatList: {
-        width: "100%",
     },
 })
