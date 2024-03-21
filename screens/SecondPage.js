@@ -9,6 +9,7 @@ import { TopicData } from '../data/TopicData';
 import { Response } from '../components/Response';
 import { ButtonBanner } from '../components/ButtonBanner';
 import { Suggestions } from '../components/Suggestions';
+import { SideSuggestion } from '../components/SideSuggestion';
 
 const SecondPage = ({ route, navigation }) => {
   //console.log(route.params.topic)
@@ -28,7 +29,7 @@ const SecondPage = ({ route, navigation }) => {
     setData([...data, {type: 'user', 'text': textInput}, {type: 'bot', 'topic': topic}])
     setTextInput('')
   }*/
-
+  // HANDLING ACTUAL SCREEN OUTPUT
   initialData = [{type: 'user', 'input': route.params.topic.headlineQuestion}]
   const [textInput, setTextInput] = useState('');
 
@@ -74,6 +75,42 @@ const SecondPage = ({ route, navigation }) => {
     }
   const [data, setData] = React.useState(initialData)
 
+  const [receivedData, setReceivedData] = React.useState('')
+  function receiveSuggestion(suggestion) {
+    sentences = suggestion.response.split(". ")
+    const video = suggestion.displayVideo
+    const videoRef = React.useRef(null);
+    initialData = [{type: 'user', 'input': suggestion.headlineQuestion}]
+    for (let i = 0; i < 2; i++) {
+      initialData.push({type: 'bot', structure: "sentence", sentence: sentences[i]})
+    }
+    initialData.push({type: 'bot', structure: "video", video: video, videoRef: videoRef})
+    for (let i = 2; i < sentences.length; i++) {
+        initialData.push({type: 'bot', structure: "sentence", sentence: sentences[i]})
+    }
+    setData([...data, initialData])
+    console.log(data)
+  }
+  const handleDataReceive = (data) => {
+    setReceivedData(data)
+    receiveSuggestion(data)
+  }
+  // END OF HANDLING ACTUAL SCREEN OUTPUT
+
+  // STARTING TO ANIMATE THE SCREEN
+  /*console.log(data)
+  componentWillMount() {
+    this.animatedValue = new Animated.Value(0);
+  }
+
+  componentDidMount() {
+    Animated.timing(this.animatedValue, {
+      toValue: height,
+      duration: 1500,
+      easing: Easing.linear,
+    }).start();
+  }*/
+
   return (
     <View style={styles.mainContainer}>
     <SafeAreaView style = {styles.scrollViewContainer}>
@@ -92,10 +129,10 @@ const SecondPage = ({ route, navigation }) => {
           }
         })
         }
-        </ScrollView>
-      </SafeAreaView>
-      <Suggestions style = {styles.bottom}/>
-      <ButtonBanner style = {styles.bottom}/>
+      </ScrollView>
+    </SafeAreaView>
+    <SideSuggestion onDataSend={handleDataReceive}/>
+    <ButtonBanner/>
     </View>
   )
 };
@@ -108,13 +145,11 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   scrollViewContainer: {
-    flex: 1,
     flexDirection: "column",
     backgroundColor:'black',
-    marginHorizontal: 10,
-    height: "100%",
+    //marginHorizontal: 10,
+    height: "85%",
   },
-  //Good
   userContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -123,45 +158,41 @@ const styles = StyleSheet.create({
     marginTop: "2%",
     marginBottom: "3%"
   },
-  //Good
   userText: {
     color: '#86868B',
-    fontSize: 18,
+    fontSize: 19,
     textAlign: 'right',
+    fontWeight: 'bold',
     width: '90%',
     padding: 10,
     right: "2%"
   },
-  //Good
   scrollView: {
     flex: 1,
     flexDirection: "column",
     backgroundColor:'black',
     marginHorizontal: 20,
-    height: "90%",
   },
-  //Good
   text: {
-    fontSize: 18,
+    fontSize: 19,
+    fontWeight: 'bold',
     color: "#86868B"
   },
   textContainer: {
     flex: 1,
     marginVertical: "5%",
     width: "80%",
+    marginHorizontal: 10,
   },
   mainVideo: {
     flex: 1,
-    borderRadius: 40,
+    borderRadius: 25,
   },
   videoContainer: {
-    //flex: 1,
     width: "100%",
-    height: "100%",
+    height: 625,
+    marginTop: "1%"
   },
-  bottom: {
-    bottom: 0
-  }
 });
 
 export default SecondPage;

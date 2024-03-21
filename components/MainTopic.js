@@ -15,7 +15,7 @@ export function MainTopic(prop) {
     const navigation = useNavigation()
     return (
         <Pressable style = {styles.container1} onPress = {() => 
-            navigation.navigate("SecondPage", {topic: topic})}>
+            navigation.navigate("TrialSecondPage", {topic: topic})}>
         <View key={prop.topic.id} style = {styles.container1}>
             <Video 
             style={styles.mainVideo} 
