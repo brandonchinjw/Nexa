@@ -87,12 +87,12 @@ const TrialSecondPage = ({ route, navigation }) => {
 
   const [newText, setNewText] = React.useState(0)
   const shuffle = useCallback(()  => {
-    const index = newText + 1
-    setNewText(index)
+    console.log(newText)
+    setNewText(Math.floor(Math.random() * sentences.length))
   }, [])
 
   useEffect(() => {
-    const interval = setInterval(shuffle, 5000)
+    const interval = setInterval(shuffle, 4000)
     return () => clearInterval(interval)
   }, [shuffle])
 
