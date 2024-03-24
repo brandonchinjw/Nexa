@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, ScrollView, Image, Pressable } from '
 import axios from 'axios';
 import AllData from '../data/AllData';
 
-
+// IN USE
 const FirstPage = ({ navigation }) => {
   const [jewelery, setJewelery] = useState([]);
 
@@ -19,7 +19,7 @@ const FirstPage = ({ navigation }) => {
 
   const handleSendData = (value) => {
     print(value)
-    navigation.navigate("TrialSecondPage", {object:value});
+    navigation.navigate("TrialSecondPage", {object:value, startingIndex: 0});
   };
 
   function HeadlineWidget(prop) {

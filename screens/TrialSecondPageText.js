@@ -13,7 +13,10 @@ import { SideSuggestion } from '../components/SideSuggestion';
 import {BlurView} from 'expo-blur'
 import { SecondaryCarousel } from '../components/SecondaryCarousel';
 import Animated, { SharedTransition, withSpring, FadeInDown, FadeInUp } from 'react-native-reanimated';
+import YouTube, { YouTubeStandaloneIOS, YouTubeStandaloneAndroid } from 'react-native-youtube';
+import { SharedElement, SharedElementTransition, nodeFromRef } from 'react-native-shared-element';
 
+// IN USE
 const customTransition = SharedTransition.custom((values) => {
   'worklet';
   return {
@@ -25,62 +28,60 @@ const customTransition = SharedTransition.custom((values) => {
 });
 
 const TrialSecondPageText = ({ route, navigation }) => {
-  data = route.params.currentData
-  currentText = route.params.currentText
-  const reachedHighlight = false
-  //const [data, setData] = React.useState([{type: 'user', 'input': route.params.topic.headlineQuestion}]);
-  //const apiKey = ''
-  //const apiUrl = ''
+  json = route.params.json
+  currentIndex = route.params.currentIndex
+  data = route.params.data
+  clearInterval = route.params.clearInterval
 
-  /*const handleSend = async () => {
-    const prompt = textInput
+  const [currentTime, setCurrentTime] = useState(0); // Define setCurrentTime here
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime((prevTime) => prevTime + 1);
+    }, 1000);
 
-    function findElement(array, prompt) {
-      return array.find((element) => element.headlineText === prompt)
-    }
+    return () => {
+      clearInterval(intervalId); // Clear the interval when unmounting
+    };
+  }, []);
 
-    const topic = findElement(TopicData, prompt)
-    console.log(topic)
-    setData([...data, {type: 'user', 'text': textInput}, {type: 'bot', 'topic': topic}])
-    setTextInput('')
-  }*/
   
   // HANDLING ACTUAL SCREEN OUTPUT
   function InputSentence(prop) {
     return (
         <View style = {styles.userContainer} key = {prop.key}>
-            <Text style = {styles.userText}>{prop.input}</Text>
+            <Animated.Text entering={FadeInUp.duration(1000).delay(200)} style = {styles.userText}>{prop.input}</Animated.Text>
         </View>
     )
   }
   
   //[fadeInup, setFadeInup] = React.useState(true)
   function OneSentence(prop) {
-    //if (fadeInup) {
+    if (prop.key < currentIndex + 1) {
       return (
           <View style = {styles.textContainer} key = {prop.key}>
-              <Animated.Text entering={FadeInDown.duration(400).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
+              <Animated.Text entering={FadeInUp.duration(1000).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
           </View>
       )
-    //}
-    //else {
+    }
+    else {
       return (
           <View style = {styles.textContainer} key = {prop.key}>
-              <Animated.Text exiting={FadeInUp.duration(400).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
+              <Animated.Text entering={FadeInDown.duration(1000).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
           </View>
       )
-   // }
+    }
   }
   
   const[positionOfHighlight, setPositionOfHighlight] = React.useState(0)
   function OneSentenceHighlighted(prop) {
-    //setFadeInup(false)
     return (
-        <BlurView intensity={40} tint='light' style = {styles.highlightedTextContainer} key = {prop.key} onLayout = {(event) => {
+        <BlurView intensity={50} tint='light' style = {styles.highlightedTextContainer} key = {prop.key} onLayout = {(event) => {
           setPositionOfHighlight(event.nativeEvent.layout.y)      
         }
         }>
-            <Animated.Text style = {styles.textHighlight} sharedTransitionTag='tag'>{prop.sentences}</Animated.Text>
+          <SharedElement onNode={node => endNode = node} id = "main">
+            <Animated.Text style = {styles.textHighlight} sharedTransitionTag='xxx'>{prop.sentences}</Animated.Text>
+          </SharedElement>
         </BlurView>
     )
 }
@@ -109,6 +110,9 @@ const TrialSecondPageText = ({ route, navigation }) => {
   return (
     <View style={styles.mainContainer}>
     <SafeAreaView style = {styles.scrollViewContainer}>
+      <Pressable style = {styles.crossContainer} onPress = {() => navigation.navigate("TrialHomePage")}>
+        <Image source={require('../assets/Images/Cross.png')} style={styles.crossIcon}/>
+      </Pressable>
       <ScrollView style = {styles.scrollView}
       ref = {(ref) => {this.scrollViewRef = ref}}
       onLayout={this.scrollToInitialPosition}
@@ -120,13 +124,11 @@ const TrialSecondPageText = ({ route, navigation }) => {
             return (InputSentence({input: item.input, key: index}))
           }
           else {
-            if (item.structure === "sentence") {
-              if (item.sentence === currentText) {
-                return (OneSentenceHighlighted({sentences: item.sentence, key: index}))
-              }
-              else {
-                return (OneSentence({sentences: item.sentence, key: index}))
-              }
+            if (index === currentIndex + 1) {
+              return (OneSentenceHighlighted({sentences: item.text, key: index}))
+            }
+            else {
+              return (OneSentence({sentences: item.text, key: index}))
             }
           }
         })
@@ -206,7 +208,17 @@ const styles = StyleSheet.create({
     padding: "2%",
     overflow: "hidden",
     borderRadius: 10,
-  }
+  },
+  crossContainer: {
+    position: 'absolute', // Added
+    top: 40, // Adjust as needed
+    left: 30, // Adjust as needed
+    zIndex: 1, // Ensure it's above the video
+  },
+  crossIcon: {
+    width: 40,
+    height: 40,
+  },
 });
 
 export default TrialSecondPageText;

@@ -88,7 +88,7 @@ export default function App() {
         <Stack.Screen name="FirstPage" component={FirstPage} />
         <Stack.Screen name="SecondPage" component={SecondPage} />
         <Stack.Screen name="TrialSecondPage" component={TrialSecondPage} />
-        <Stack.Screen name="TrialSecondPageText" component={TrialSecondPageText} />
+        <Stack.Screen name="TrialSecondPageText" component={TrialSecondPageText} options={{animation: 'none'}} />
 
       </Stack.Navigator>}
     </NavigationContainer>
