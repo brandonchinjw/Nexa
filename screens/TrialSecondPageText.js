@@ -14,6 +14,7 @@ import {BlurView} from 'expo-blur'
 import { SecondaryCarousel } from '../components/SecondaryCarousel';
 import Animated, { SharedTransition, withSpring, FadeInDown, FadeInUp } from 'react-native-reanimated';
 import YouTube, { YouTubeStandaloneIOS, YouTubeStandaloneAndroid } from 'react-native-youtube';
+import TrialSecondPage from './TrialSecondPage';
 import { SharedElement, SharedElementTransition, nodeFromRef } from 'react-native-shared-element';
 
 // IN USE
@@ -58,16 +59,20 @@ const TrialSecondPageText = ({ route, navigation }) => {
   function OneSentence(prop) {
     if (prop.key < currentIndex + 1) {
       return (
+        <Pressable onPress = {() => navigation.navigate("TrialSecondPage", {json: json, currentIndex: prop.key - 1, data: data})}>
           <View style = {styles.textContainer} key = {prop.key}>
               <Animated.Text entering={FadeInUp.duration(1000).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
           </View>
+        </Pressable>
       )
     }
     else {
       return (
+        <Pressable onPress = {() => navigation.navigate("TrialSecondPage", {json: json, currentIndex: prop.key - 1, data: data})}>
           <View style = {styles.textContainer} key = {prop.key}>
               <Animated.Text entering={FadeInDown.duration(1000).delay(200)} style = {styles.text}>{prop.sentences}</Animated.Text>
           </View>
+        </Pressable>
       )
     }
   }
@@ -75,16 +80,18 @@ const TrialSecondPageText = ({ route, navigation }) => {
   const[positionOfHighlight, setPositionOfHighlight] = React.useState(0)
   function OneSentenceHighlighted(prop) {
     return (
-        <BlurView intensity={50} tint='light' style = {styles.highlightedTextContainer} key = {prop.key} onLayout = {(event) => {
-          setPositionOfHighlight(event.nativeEvent.layout.y)      
-        }
-        }>
-          <SharedElement onNode={node => endNode = node} id = "main">
-            <Animated.Text style = {styles.textHighlight} sharedTransitionTag='xxx'>{prop.sentences}</Animated.Text>
-          </SharedElement>
+      //<Animated.View sharedTransitionTag='xxx' sharedTransitionStyle={customTransition}>
+      <Pressable onPress = {() => navigation.navigate("TrialSecondPage", {json: json, currentIndex: prop.key - 1, data: data})}>
+        <BlurView intensity={50} tint='light' style={styles.highlightedTextContainer} key={prop.key} onLayout={(event) => {
+            setPositionOfHighlight(event.nativeEvent.layout.y)
+        }}>
+            <Animated.Text style={styles.textHighlight} sharedTransitionTag = "xxx">{prop.sentences}</Animated.Text>
         </BlurView>
-    )
-}
+      </Pressable>
+      //</Animated.View>
+    );
+  }
+
   function StickyVideo(prop) {
     return (
         <View style = {styles.videoContainer} key = {prop.key}>
@@ -101,10 +108,17 @@ const TrialSecondPageText = ({ route, navigation }) => {
     )
   }
 
+  useEffect(() => {
+    scrollToInitialPosition();
+  }, [positionOfHighlight]);
+  
   scrollToInitialPosition = () => {
-    const WindowHeight = Dimensions.get('window').height
-    this.scrollViewRef.scrollTo({y : positionOfHighlight - WindowHeight * 0.7 * 0.9})
-  }
+    const WindowHeight = Dimensions.get('window').height;
+    console.log(positionOfHighlight);
+    if (scrollViewRef.current && positionOfHighlight > 0) {
+      scrollViewRef.current.scrollTo({ y: positionOfHighlight - WindowHeight * 0.7 * 0.9 });
+    }
+  };
 
   const scrollViewRef = useRef(null)
   return (

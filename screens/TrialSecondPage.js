@@ -13,7 +13,7 @@ import { SideSuggestion } from '../components/SideSuggestion';
 import {BlurView} from 'expo-blur'
 import Animated from 'react-native-reanimated';
 import { SharedTransition, withSpring } from 'react-native-reanimated';
-import { SharedElement, SharedElementTransition, nodeFromRef } from 'react-native-shared-element';
+import { SharedElement } from 'react-native-shared-element';
 
 // IN USE
 const customTransition = SharedTransition.custom((values) => {
@@ -45,11 +45,10 @@ const TrialSecondPage = ({ route, navigation }) => {
     setTextInput('')
   }*/
   // HANDLING ACTUAL SCREEN OUTPUT
-  const object = route.params.object
-  const json = route.params.object.json
+  const json = route.params.json
   const startingIndex = route.params.startingIndex
 
-  initialData = [{type: 'user', 'input': object.headlineQuestion}]
+  initialData = [{type: 'user', 'input': json.headlineQuestion}]
   const textChunks = json.textChunks
 
   for (let i = startingIndex; i < Object.keys(textChunks).length; i++) {
@@ -126,12 +125,13 @@ const TrialSecondPage = ({ route, navigation }) => {
             resizeMode='cover'
         />
         </View>
-        <Pressable style = {styles.mainBlur} onPress = {() => 
-            navigation.navigate("TrialSecondPageText", {currentIndex: currentSentenceIndex, json: json, data: data, clearInterval: clearInterval})}>
-        <BlurView intensity={50} tint='light' style={styles.blurContainer} id = 'main'>
-            <Animated.Text style={styles.userText} sharedTransitionTag='xxx'> {sentences[currentSentenceIndex]} </Animated.Text>
+        <Animated.View style={styles.mainBlur} sharedTransitionTag='xxx' sharedTransitionStyle={customTransition}>
+      <Pressable onPress={() => navigation.navigate("TrialSecondPageText", { currentIndex: currentSentenceIndex, json: json, data: data, })}>
+        <BlurView intensity={50} tint='light' style={styles.blurContainer}>
+          <Animated.Text style={styles.userText}>{sentences[currentSentenceIndex]}</Animated.Text>
         </BlurView>
-        </Pressable>
+      </Pressable>
+      </Animated.View>
         <SideSuggestion onDataSend={handleDataReceive}/>
         <ButtonBanner/>
     </View>

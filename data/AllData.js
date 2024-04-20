@@ -7,8 +7,8 @@ export default {
             "headline1": {"title" : "F1 driver Lewis Hamilton to leave Mercedes for Ferrari", 
             "id": "1", 
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
-            "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -28,7 +28,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -37,6 +49,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -56,7 +69,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -65,6 +90,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -84,7 +110,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -93,6 +131,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": ('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -112,7 +151,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -121,6 +172,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -140,7 +192,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -149,6 +213,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -168,7 +233,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -177,6 +254,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -196,7 +274,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -205,6 +295,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -224,7 +315,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
 
@@ -233,6 +336,7 @@ export default {
             "image": "https://www.italpassion.fr/wp-content/uploads/2024/02/hamilton-ferrari.jpg",
             "headlineQuestion": "Tell me more about Taylor Swift.",
             "json": {
+                "headlineQuestion": "Tell me more about Taylor Swift.",
                 "video": require('../assets/Images/video.mp4'),
                 "audio": require('../assets/Images/video.mp4'),
                 "videoLength": 64,
@@ -252,7 +356,19 @@ export default {
                     6: {"text": "Taylor Swift transcends her role as a global music icon 7.",
                     "start": 43},
                     7: {"text": "Taylor Swift transcends her role as a global music icon 8.",
-                    "start": 50}
+                    "start": 50},
+                    8: {"text": "Taylor Swift transcends her role as a global music icon 9.",
+                    "start": 53},
+                    9: {"text": "Taylor Swift transcends her role as a global music icon 10.",
+                    "start": 55},
+                    10: {"text": "Taylor Swift transcends her role as a global music icon 11.",
+                    "start": 57},
+                    11: {"text": "Taylor Swift transcends her role as a global music icon 12.",
+                    "start": 59},
+                    12: {"text": "Taylor Swift transcends her role as a global music icon 13.",
+                    "start": 61},
+                    13: {"text": "Taylor Swift transcends her role as a global music icon 14.",
+                    "start": 62},
                 }
             }},
         },

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, ScrollView, Image, Pressable } from 'react-native';
+import Animated, { SharedTransition, withSpring, FadeInDown, FadeInUp } from 'react-native-reanimated';
 import axios from 'axios';
 import AllData from '../data/AllData';
 
@@ -19,7 +20,7 @@ const FirstPage = ({ navigation }) => {
 
   const handleSendData = (value) => {
     print(value)
-    navigation.navigate("TrialSecondPage", {object:value, startingIndex: 0});
+    navigation.navigate("TrialSecondPage", {json:value, startingIndex: 0});
   };
 
   function HeadlineWidget(prop) {
@@ -28,10 +29,10 @@ const FirstPage = ({ navigation }) => {
     title = object.title
 
     return (
-      <Pressable onPress = {() => handleSendData(object)}>
+      <Pressable onPress = {() => handleSendData(object.json)}>
       <View style = {styles.headlineWidget}>
-        <Image source={{uri: imageLink}} style={styles.mainImage}/>
-        <Text style = {styles.headlineText}>{title}</Text>
+        <Animated.Image source={{uri: imageLink}} entering={FadeInUp.duration(1000).delay(200)}  style={styles.mainImage}/>
+        <Animated.Text style = {styles.headlineText} entering={FadeInUp.duration(1000).delay(200)} >{title}</Animated.Text>
       </View>
       </Pressable>
     )
@@ -43,10 +44,10 @@ const FirstPage = ({ navigation }) => {
     title = object.title
 
     return (
-      <Pressable style = {styles.singleSmallWidget} onPress = {() => handleSendData(object)}>
+      <Pressable style = {styles.singleSmallWidget} onPress = {() => handleSendData(object.json)}>
       <View style = {styles.singleSmallWidget}>
-        <Image source={{uri: imageLink}} style={styles.smallImage}/>
-        <Text style = {styles.smallText}>{title}</Text>
+        <Animated.Image source={{uri: imageLink}} entering={FadeInUp.duration(1000).delay(200)}  style={styles.smallImage}/>
+        <Animated.Text style = {styles.smallText} entering={FadeInUp.duration(1000).delay(200)} >{title}</Animated.Text>
       </View>
       </Pressable>
     )
@@ -70,10 +71,10 @@ const FirstPage = ({ navigation }) => {
     title = object.title
 
     return (
-      <Pressable onPress = {() => handleSendData(object)}>
+      <Pressable onPress = {() => handleSendData(object.json)}>
       <View style = {styles.singleMainWidget}>
-        <Image source={{uri: imageLink}} style={styles.singleImage}/>
-        <Text style = {styles.singleText}>{title}</Text>
+        <Animated.Image source={{uri: imageLink}} entering={FadeInUp.duration(1000).delay(200)}  style={styles.singleImage}/>
+        <Animated.Text style = {styles.singleText} entering={FadeInUp.duration(1000).delay(200)} >{title}</Animated.Text>
       </View>
       </Pressable>
     )
@@ -90,7 +91,7 @@ const FirstPage = ({ navigation }) => {
     print(data.topText)
     return (
       <View style = {styles.Layout}>
-        <Text style = {styles.topicText}>{data.topText}</Text>
+        <Animated.Text style = {styles.topicText} entering={FadeInUp.duration(1000).delay(200)} >{data.topText}</Animated.Text>
         <HeadlineWidget object = {data.headline1}/>
         <DoubleMainWidget object1 = {data.headline2} object2 = {data.headline3}/>
         <SingleMainWidget object = {data.headline4}/>
@@ -129,7 +130,7 @@ const FirstPage = ({ navigation }) => {
     const data = AllData.data.TopHeadlines
     return (
       <View style = {styles.Layout}>
-        <Text style = {styles.topicText}>{data.topText}</Text>
+        <Animated.Text style = {styles.topicText} entering={FadeInUp.duration(1000).delay(200)} >{data.topText}</Animated.Text>
         <HeadlineWidget object = {data.headline1}/>
         <DoubleMainWidget object1 = {data.headline2} object2 = {data.headline3}/>
         <DoubleMainWidget object1 = {data.headline4} object2 = {data.headline5}/>
@@ -148,7 +149,7 @@ const FirstPage = ({ navigation }) => {
     const data = AllData.data.TopHeadlines
     return (
       <View style = {styles.Layout}>
-        <Text style = {styles.topicText}>{data.topText}</Text>
+        <Animated.Text style = {styles.topicText} entering={FadeInUp.duration(1000).delay(200)} >{data.topText}</Animated.Text>
         <HeadlineWidget object = {data.headline1}/>
         <DoubleMainWidget object1 = {data.headline2} object2 = {data.headline3}/>
         <SingleMainWidget object = {data.headline4}/>

@@ -13,6 +13,7 @@ import TrialSecondPage from './screens/TrialSecondPage';
 import SplashScreen from './screens/SplashScreen';
 import TrialSecondPageText from './screens/TrialSecondPageText';
 import TrialHomePage from './screens/TrialHomePage';
+import PerplexityDesign from './screens/PerplexityDesign';
 
 const Stack = createNativeStackNavigator();
 
@@ -84,6 +85,7 @@ export default function App() {
           headerShown: false,
           ...customTransition,
         }}>
+        <Stack.Screen name="PerplexityDesign" component={PerplexityDesign} />
         <Stack.Screen name="TrialHomePage" component={TrialHomePage} />
         <Stack.Screen name="FirstPage" component={FirstPage} />
         <Stack.Screen name="SecondPage" component={SecondPage} />
